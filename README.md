@@ -3,14 +3,14 @@ This project shows how to build an Android Titanium app able to receive push not
 
 ## Realtime + Android push notifications guide
 
-- Create a google project, more info [here](http://messaging-public.realtime.co/documentation/starting-guide/mobilePushGCM.html).
+- Create a Google project, more info [here](http://messaging-public.realtime.co/documentation/starting-guide/mobilePushGCM.html).
 
-- Set notification title to be displayed in the notification manager.
+- Set the notification title to be displayed in the notification manager:
 
 		ortc.setNotificationTitle('[App name for example]');
 
 
-- Before connect set your Google project id: 
+- Before connect set your Google Project Number: 
 
 		ortc.setGoogleProjectId('462540995476');
 		ortc.clusterUrl = 'http://ortc-developers.realtime.co/server/2.1';
@@ -20,18 +20,18 @@ This project shows how to build an Android Titanium app able to receive push not
 			ortc.connect(taAppKey.value);
 		}
 		
-- Set onNotification eventListener. 
+- Set the onNotification eventListener: 
 
 		ortc.addEventListener('onNotification', function(e) {
 			addRowToEvents('(onNotification Channel: '+e.channel+') Message received: '+e.message+' Payload received: '+e.payload);
 			Titanium.API.log('(onNotification Channel: '+e.channel+') Message received: '+e.message);
 		});
 		
-- Use subscribeWithNotifications to subscribe the channel.
+- Use subscribeWithNotifications to subscribe the channel:
 		
 		ortc.subscribeWithNotifications(taChannel.value, true);
 		
-- Add the folling entries to your application TiApp.xml, replace **[Titanium project identifier]** :
+- Add the following entries to your application TiApp.xml, replace **[Titanium project identifier]** :
 
 	    <android xmlns:android="http://schemas.android.com/apk/res/android">
 	        <manifest>
